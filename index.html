@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>병합정렬과 퀵정렬의 최악의 경우 변경횟수의 비교</title>
+</head>
+<body bgcolor="#3D0454">
+    <center>
+        <font color=white>
+            <h1>병합정렬과 퀵정렬의 최악의 경우 변경횟수의 비교</h1>
+            확인 하고싶은 알고리즘을 선택하십시오<br>
+                <input type="radio" name="algoritm" value=1 onchange="chang()">병합정렬(MergeSort)
+                <input type="radio" name="algoritm" value=2 onchange="chang()">퀵정렬(QuickSort)
+                <input type="radio" name="algoritm" value=0 onchange="chang()" checked>선택안함(MergeSort)<br>
+        </font>
+        <iframe src="set.html" name="main" style="display:block; width:95vw; height: 80vh">
+
+        </iframe>
+    </center>
+</body>
+<script>
+    function chang() {
+        var site = ["set.html", "MergeSort.html", "Quick.html"];
+        var algoritm = document.querySelector('input[name="algoritm"]:checked').value;
+        document.querySelector('iframe[name="main"]').src = site[algoritm];
+    }
+</script>
+</html>

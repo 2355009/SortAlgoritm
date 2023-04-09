@@ -1,0 +1,4 @@
+{
+    "jupyter.disableJupyterAutoStart": true,
+    "jupyter.exportWithOutputEnabled": true
+}

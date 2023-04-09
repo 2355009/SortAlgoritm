@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="style.css">
+<body bgcolor="white">
+    <center>
+        <h1>병합 정렬</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>병합정렬이란?</h2>
+        병합 정렬(Merge Sort)은 배열의 길이가 1이 될 때까지 반으로 나누고, 요소가 1개인 배열끼리 비교하여 정렬하는 정렬 알고리즘으로, 합병 정렬이라고도 불립니다.<br><br><br><br>
+        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F21242C4D51CAB47F29" width="43.5%" border="1"><br>
+        <pictext>출처 :<a href="https://arisu1000.tistory.com/27717" target="_blank">아리수 MergeSort(병합정렬,합병정렬,머지소트)</a> </pictext><br><br><br><br>
+        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fecfqrw%2FbtquKH56c6P%2F0zzSOf06rAto8tEP2Igpz1%2Fimg.jpg" border="1"><br>
+        <pictext>출처 :<a href="https://withhamit.tistory.com/174" target="_blank">햄과 함께IT-병합 정렬(MergeSort)</a> </pictext><br><br><br><br>
+        <h2>C++로 구현한 병합정렬</h2>
+        <table width="100%">
+            <tr><td width="10%"></td><td width="80%" bgcolor="black"><font color="green"><pre>
+
+    int MergeSort(int** data,int count) {
+        int size = _msize(*data) / sizeof(int);
+        if (size < 2)
+            return count;//배열의 길이가 1이하면 아무것도 안함
+        int leftsize = size / 2, rightsize = size - leftsize;//왼쪽 배열의 크기와 오른쪽 배열의 크기를 만듦
+        int* left = new int[leftsize];
+        int* right = new int[rightsize];
+        for (int i = 0; i < leftsize; i++)
+            *(left + i) = *(*data + i);
+        for (int i = 0; i < rightsize; i++)
+            *(right + i) = *(*data + i + leftsize);
+        count=MergeSort(&left, count);//왼쪽 배열 정렬
+        count=MergeSort(&right, count);//오른쪽 배열 정렬
+        int leftnow = 0, rightnow = 0, now = 0;
+        while (leftnow < leftsize && rightnow < rightsize) {
+            if (left[leftnow] < right[rightnow]) {
+                *((*data) + now) = *(left + leftnow);
+                leftnow++;
+                now++;
+            }
+            else {
+                *((*data) + now) = *(right + rightnow);
+                rightnow++;
+                now++;
+            }
+        }
+        while (leftnow < leftsize) {
+            *((*data) + now) = *(left + leftnow);
+            leftnow++;
+            now++;
+        }
+        while (rightnow < rightsize) {
+            *((*data) + now) = *(right + leftnow);
+            rightnow++;
+            now++;
+        }
+        delete[] right;
+        delete[] left;
+        count += leftnow;
+        return count;
+    }
+
+            </pre></font></td><td width="10%"></td></tr>
+        </table><br><pictext>자세한 코드는 <a href="Algoritm\src\header.cpp" target="_blank">여길</a> 참고해주세요</pictext>
+        <br><br><br><br><h2>최악의 경우의 병합정렬</h2>
+         <img src="img\MergeSort.png" width="50%">
+    </center>
+</body>
