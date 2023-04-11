@@ -16,14 +16,14 @@
                 <input type="radio" name="algoritm" value=0 onchange="chang()" checked>선택안함(MergeSort)<br>
                 <br>
         </font>
-        <iframe src="set.html" name="main" style="display:block; width:95vw; height: 80vh">
+        <iframe src="https://o365kbu-my.sharepoint.com/:p:/g/personal/anyoungjin0106_office_kbu_ac_kr/EaXKdKQORCRAu4Q25YMS8gABvKjnJW3OYIYp5-LVPxXE9A?e=Ow1Ybq&nav=eyJzSWQiOjI1NiwiY0lkIjowfQ" name="main" style="display:block; width:95vw; height: 80vh">
 
         </iframe>
     </center>
 </body>
 <script>
     function chang() {
-        var site = ["set.html", "MergeSort.html", "Quick.html"];
+        var site = ["https://o365kbu-my.sharepoint.com/:p:/g/personal/anyoungjin0106_office_kbu_ac_kr/EaXKdKQORCRAu4Q25YMS8gABvKjnJW3OYIYp5-LVPxXE9A?e=Ow1Ybq&nav=eyJzSWQiOjI1NiwiY0lkIjowfQ", "MergeSort.html", "Quick.html"];
         var algoritm = document.querySelector('input[name="algoritm"]:checked').value;
         document.querySelector('iframe[name="main"]').src = site[algoritm];
     }

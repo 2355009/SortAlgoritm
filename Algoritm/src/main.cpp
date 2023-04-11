@@ -7,8 +7,8 @@ int main() {
     file << "크기,퀵정렬(QuickSort),병합정렬(MergeSort)\n";
     for (int i = 0; i <= 8; i++)
     {
-        file << i+i << ",";
-        a[i] = new int[i+2];
+        file << i + 2 << ",";
+        a[i] = new int[i + 2];
         BadSetting(&(a[i]));
         file << QuickSort(&(a[i])) << ",";
         BadSetting(&(a[i]));

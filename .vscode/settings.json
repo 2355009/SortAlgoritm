@@ -1,4 +1,5 @@
 {
     "jupyter.disableJupyterAutoStart": true,
-    "jupyter.exportWithOutputEnabled": true
+    "jupyter.exportWithOutputEnabled": true,
+    "terminal.integrated.detectLocale": "off"
 }

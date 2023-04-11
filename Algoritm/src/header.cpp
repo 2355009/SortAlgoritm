@@ -1,18 +1,18 @@
 #include "header.h"
 
-int MergeSort(int** data,int count) {
+int MergeSort(int** data, int count) {
 	int size = _msize(*data) / sizeof(int);
 	if (size < 2)
-		return count;//배열의 길이가 1이하면 아무것도 안함
-	int leftsize = size / 2, rightsize = size - leftsize;//왼쪽 배열의 크기와 오른쪽 배열의 크기를 만듦
+		return count;
+	int leftsize = size / 2, rightsize = size - leftsize;
 	int* left = new int[leftsize];
 	int* right = new int[rightsize];
 	for (int i = 0; i < leftsize; i++)
 		*(left + i) = *(*data + i);
 	for (int i = 0; i < rightsize; i++)
 		*(right + i) = *(*data + i + leftsize);
-	count=MergeSort(&left, count);//왼쪽 배열 정렬
-	count=MergeSort(&right, count);//오른쪽 배열 정렬
+	count = MergeSort(&left, count);
+	count = MergeSort(&right, count);
 	int leftnow = 0, rightnow = 0, now = 0;
 	while (leftnow < leftsize && rightnow < rightsize) {
 		if (left[leftnow] < right[rightnow]) {
@@ -24,6 +24,7 @@ int MergeSort(int** data,int count) {
 			*((*data) + now) = *(right + rightnow);
 			rightnow++;
 			now++;
+			count++;
 		}
 	}
 	while (leftnow < leftsize) {
@@ -38,11 +39,10 @@ int MergeSort(int** data,int count) {
 	}
 	delete[] right;
 	delete[] left;
-	count += leftnow;
 	return count;
 }
-int QuickSort(int** data, int count){
-	int leftsize = 0, rightsize = 0,pivot= *((*data)),size= _msize(*data) / sizeof(int);//pivot은 처음 숫자
+int QuickSort(int** data, int count) {
+	int leftsize = 0, rightsize = 0, pivot = *((*data)), size = _msize(*data) / sizeof(int);
 	if (size < 2)
 		return count;
 	for (int i = 1; i < size; i++) {
@@ -65,16 +65,16 @@ int QuickSort(int** data, int count){
 			rightnow++;
 		}
 	}
-	count=QuickSort(&left, count);
-	count=QuickSort(&right, count);
+	count = QuickSort(&left, count);
+	count = QuickSort(&right, count);
 	for (int i = 0; i < leftsize; i++)
 		*(*data + i) = *(left + i);
 	*(*data + leftsize) = pivot;
 	for (int i = 0; i < rightsize; i++)
-		*(*data +1+ leftsize + i) = *(right + i);
+		*(*data + 1 + leftsize + i) = *(right + i);
 	delete[] right;
 	delete[] left;
-	count += leftnow;
+	count += leftsize;
 	return count;
 }
 void BadSetting(int** data) {
