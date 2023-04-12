@@ -11,21 +11,20 @@
         <font color=white>
             <h1>병합정렬과 퀵정렬의 최악의 경우 변경횟수의 비교</h1>
             확인 하고싶은 알고리즘을 선택하십시오<br>
-                <input type="radio" name="algoritm" value=1 onchange="chang()">병합정렬(MergeSort)
-                <input type="radio" name="algoritm" value=2 onchange="chang()">퀵정렬(QuickSort)
-                <input type="radio" name="algoritm" value=0 onchange="chang()" checked>선택안함(MergeSort)<br>
+                <input type="radio" name="algoritm" value=1 onchange="chang(1)">병합정렬(MergeSort)
+                <input type="radio" name="algoritm" value=2 onchange="chang(2)">퀵정렬(QuickSort)
+                <input type="radio" name="algoritm" value=0 onchange="chang(0)" checked>PPT 보기(Watch PPT)<br>
                 <br>
         </font>
-        <iframe src="https://2355009.github.io/SortAlgoritm/PPT/PPT.pptx" name="main" style="display:block; width:95vw; height: 80vh">
+        <iframe src="https://docs.google.com/presentation/d/1BbHrGaefnqQ1NHhos0G68kzX1N0Q5A5_kvwbxGCsGmw/edit?usp=sharing" name="main" style="display:block; width:95vw; height: 80vh">
 
         </iframe>
     </center>
 </body>
 <script>
-    function chang() {
-        var site = ["https://2355009.github.io/SortAlgoritm/PPT/PPT.pptx", "MergeSort.html", "Quick.html"];
-        var algoritm = document.querySelector('input[name="algoritm"]:checked').value;
-        document.querySelector('iframe[name="main"]').src = site[algoritm];
+    function chang(i) {
+        var site = ["https://docs.google.com/presentation/d/1BbHrGaefnqQ1NHhos0G68kzX1N0Q5A5_kvwbxGCsGmw/edit?usp=sharing", "MergeSort.html", "Quick.html"];
+        document.querySelector('iframe[name="main"]').src = site[i];
     }
 </script>
 </html>
