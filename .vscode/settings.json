@@ -1,5 +1,9 @@
 {
     "jupyter.disableJupyterAutoStart": true,
     "jupyter.exportWithOutputEnabled": true,
-    "terminal.integrated.detectLocale": "off"
+    "terminal.integrated.detectLocale": "off",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "VSCodeNotion.fontSize": 14,
+    "VSCodeNotion.fontFamily": "'Black Han Sans Regular'",
+    "editor.fontLigatures": false
 }
